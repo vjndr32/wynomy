@@ -1,0 +1,19 @@
+module.exports={
+  attributes:{
+    showName:{
+      required:true,
+      unique:true,
+      type:'string'
+    },
+    showDescription:{
+      required:true,
+      type:'string'
+    },
+    showStartTime:{
+      required:true,
+      type:'string'
+    }
+  },
+  tableName:'Data',
+  connection:'mongodb'
+}

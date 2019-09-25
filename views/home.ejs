@@ -1,0 +1,19 @@
+<div class="container text-center">
+  <h2 class="text-success">ADD SHOW</h2>
+  <div class="k-card">
+    <div class="k-card-body">
+      <label for="showNameInput">Show Name</label>
+      <input id="showNameInput" type="text" class="k-textbox" style="width: 100%;" />
+      <label for="showDescription">About the show</label>
+      <textarea id="showDescription" type="text" class="k-textbox" style="width: 100%;" /></textarea>
+      <label for="showStartTime">Start At</label>
+      <input id="showStartTime" value="10:00 AM" type="text" class="k-textbox" style="width: 100%;" />
+    </div>
+  </div>
+  <br /><br />
+  <button type="button" name="button" id="addShowButton" class="k-primary">Add Show</button>
+  <a id="primaryTextButton" href="/shows">List of shows</a>
+  <br /><br />
+  <h4 id="message" class="d-none"></h4>
+</div>
+<% block('localScripts', '<script src="/js/locals/home.js"></script>') %>

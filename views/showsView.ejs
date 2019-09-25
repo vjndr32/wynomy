@@ -1,0 +1,49 @@
+<div class="container mt-1 text-center">
+  <h2 class="text-success">Your shows</h2>
+  <% if(view && shows.length>0){ %>
+    <div class="row">
+      <% for(var item of shows){ %>
+        <div class="col-12 col-md-6 mb-2">
+          <div class="k-card">
+            <div class="k-card-body " id="<%= item.id %>">
+              <div class="row">
+                <div class="col-5 font-weight-bold">Show name</div>
+                <div class="col-7"><%= item.showName %></div>
+                <input name="name" type="text" class="col-7 k-textbox d-none" style="width: 100%;" value="<%= item.showName %>" />
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-5 font-weight-bold">Show Description</div>
+                <div class="col-7" style="word-break:break-word;"><%= item.showDescription %></div>
+                <textarea name="description" type="text" class="col-7 k-textbox d-none" style="width: 100%;" /><%= item.showDescription %></textarea>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-5 font-weight-bold">Show starts at</div>
+                <div class="col-7"><%= item.showStartTime %></div>
+                <input name="time" type="text" class="col-7 k-textbox d-none" style="width: 100%;" value="<%= item.showStartTime %>" />
+              </div>
+            </div>
+            <div class="k-card-actions">
+              <div name="main-actions">
+                <span class="k-button k-flat k-primary" onclick="edit('<%= item.id %>')">Edit</span>
+                <span class="k-button k-flat k-primary" onclick="deleteShow('<%= item.showName %>')">Delete</span>
+              </div>
+              <div class="d-none" name='supp-actions'>
+                <span class="k-button k-flat k-primary" onclick="saveEdit('<%= item.id %>')">Save</span>
+                <span class="k-button k-flat k-primary" onclick="edit('<%= item.id %>')">Cancel</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% } %>
+    </div>
+  <% }else if(view && shows.length<1){ %>
+    <h3 class="text-danger">Data empty. Please add shows from home.</h3>
+  <% }else{ %>
+    <h3 class="text-danger">Sorry, there was some error loading data. Please refresh the page. Or try adding shows on home page.</h3>
+  <% } %>
+</div>
+
+
+<% block('localScripts', '<script src="/js/locals/showsView.js"></script>') %>
